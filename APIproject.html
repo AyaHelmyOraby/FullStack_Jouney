@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1, h2, h3, h4, h5 {
+            margin: 0px;
+            color: rgb(0, 0, 0);
+        }
+
+        .user.selected {
+            border: solid #ff6200 8px;
+        }
+
+        .user {
+            background-color: rgb(255, 255, 255);
+            border-radius: 100px;
+            padding: 10px;
+            padding-left: 20px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+            margin-top: 8px;
+            cursor: pointer;
+            font-size: small;
+        }
+
+        .user2 {
+            background-color: rgb(255, 255, 255);
+            width: 90%;
+            height: 34px;
+            border-radius: 100px;
+            padding: 10px;
+            padding-left: 20px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+            margin-top: 8px;
+            cursor: pointer;
+            font-size: x-small;
+        }
+
+        body {
+            background: linear-gradient(45deg, rgb(10, 11, 51), rgb(83, 6, 6));
+        }
+
+        #container {
+            display: flex;
+            justify-content: center;
+        }
+
+        #left {
+            width: 30%;
+            height: 100px;
+        }
+
+        #right {
+            width: 90%;
+            height: 100px;
+            margin-left: 10%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="left">
+          <h1> aya oraby </h1>
+        </div>
+
+        <div id="right">
+          <h2> users </h2>
+        </div>
+    </div>
+
+    <script>
+        function getrequest(userId) {
+            let request = new XMLHttpRequest();
+            request.open("GET", `https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
+            request.responseType = "json";
+            request.send();
+            request.onload = function() {
+                if (request.status >= 200 && request.status < 300) {
+                    let posts = request.response;
+                    let rightContainer = document.getElementById("right");
+                    rightContainer.innerHTML = ""; // Clear existing content
+
+                    for (let post of posts) {
+                        let content = `
+                            <div class="user2">
+                                <h1>${post.title}</h1>
+                                <h4>${post.body}</h4>
+                            </div>
+                        `;
+                        rightContainer.innerHTML += content;
+                    }
+                } else {
+                    alert("Error fetching data");
+                }
+            }
+        }
+
+        function getusers() {
+            let request = new XMLHttpRequest();
+            request.open("GET", "https://jsonplaceholder.typicode.com/users");
+            request.responseType = "json";
+            request.send();
+            request.onload = function() {
+                if (request.status >= 200 && request.status < 300) {
+                    let users = request.response;
+                    let leftContainer = document.getElementById("left");
+                    leftContainer.innerHTML = ""; // Clear existing content
+
+                    for (let user of users) {
+                        let content = `
+                            <div class="user" onclick="userclicked(${user.id}, this)">
+                                <h1>${user.name}</h1>
+                                <h2>${user.email}</h2>
+                            </div>
+                        `;
+                        leftContainer.innerHTML += content;
+                    }
+                } else {
+                    alert("Error fetching data");
+                }
+            }
+        }
+
+        function userclicked(id, el) {
+            let elements = document.getElementsByClassName("user");
+            for (let elem of elements) {
+                elem.classList.remove("selected");
+            }
+            el.classList.add("selected");
+
+            getrequest(id);
+        }
+
+        getusers();
+    </script>
+</body>
+
+</html>
