@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aladhan</title>
+    
+    <style>
+        body {
+            background: rgb(78, 121, 80);
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            /* overflow: hidden; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            direction: rtl;
+        }
+
+        #masjidimage {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 50%;
+        }
+
+        #up {
+            height: 30%;
+            width: 100%;
+            background-color: rgb(2, 2, 2);
+            opacity: 70%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+
+
+
+        }
+
+        #down {
+            height: 60%;
+            width: 100%;
+            background-color: rgb(2, 2, 2);
+            opacity: 50%;
+            display: flex;
+            flex-direction: column;
+            /* justify-content: space-between;
+            align-items: center; */
+        }
+
+        #font {
+            font-size: 40px;
+            color: blanchedalmond;
+
+            font-family: "Cairo", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: weight;
+            font-style: normal;
+            font-variation-settings:
+                "slnt" 0;
+
+            background-color: rgb(43, 83, 54);
+            width: 300px;
+            height: 180px;
+            text-align: center;
+            box-shadow: 0 60px 80px rgba(0, 0, 0, 0.60), 0 45px 26px rgba(0, 0, 0, 0.14);
+            border-radius: 11%;
+            /* margin-top: 10px; */
+        }
+
+        #cityname {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #city {
+            margin: auto;
+        }
+
+        #date {
+            font-size: 40px;
+            color: blanchedalmond;
+
+            font-family: "Cairo", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: weight;
+            font-style: normal;
+            font-variation-settings: "slnt" 0;
+
+        }
+
+        #salahs {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        /* #uprayer {
+            width: 100%;
+
+            height: 30%;
+            background-color: rgba(15, 1, 1, 0.6);
+            opacity: 100%;
+            border-radius: 10%;
+        } */
+
+        /* // <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 200 to 1000 */
+
+        #listcities {
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 50px;
+            /* width: 30px;
+            height: 20px; */
+
+
+
+
+        }
+
+
+        /* Style for the select dropdown */
+#city-select {
+    width: 300px;
+    height: 50px;
+    font-size: 25px;
+    font-family: Cairo, sans-serif;
+    background-color: rgb(0, 0, 0, 0.7); /* Background color of the dropdown */
+    color: aliceblue; /* Font color of the selected option */
+    padding: 5px;
+    border-radius: 20px;
+}
+
+/* Style for the options in the dropdown */
+#city-select option {
+    background-color: rgb(78, 121, 80); /* Background color of the options */
+    color: aliceblue; /* Font color of the options */
+}
+
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Lalezar&family=Zain:wght@200;300;400;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div><img id="masjidimage" src="MasjidNabawi.jpg" alt="Masjid Nabawi"></div>
+
+
+
+    <div id="up">
+        <h2 id="date"> الجمعة 24 نوفمبر</h2>
+        <!-- <div id="font" id="city"> المدينة</div> -->
+
+        <div id="font" id="cityshown"> 
+            <h1 id="cityshown" style="font-size: 30px; justify-content: center;">
+            المدينة المنورة</h1>
+        </div>
+
+
+     
+    </div>
+    <hr style="margin: 0%;border-color: azure;">
+    <div id="down">
+
+        <div id="salahs">
+            <div id="font">
+                <div id=uprayer id="fajr">
+
+                    <h1 style="font-size: 35px;"> الفجر</h1>
+                    <h2 style="font-size: 35px; " id="fajr-time">4:22 </h2>
+                </div>
+            </div>
+            <div id="font" id="sunrise">
+                <h1 style="font-size: 35px;"> الشروق</h1>
+                <h2 style="font-size: 35px;" id="sunrise-time">4:22 </h2>
+            </div>
+            <div id="font" id="Dhuhr">
+                <h1 style="font-size: 35px;"> الظهر</h1>
+                <h2 style="font-size: 35px;" id="Dhuhr-time">4:22 </h2>
+            </div>
+            <div id="font" id="Asr">
+                <h1 style="font-size: 35px;"> العصر</h1>
+                <h2 style="font-size: 35px;" id="Asr-time">4:22 </h2>
+            </div>
+            <div id="font" id="Maghrib">
+                <h1 style="font-size: 35px;"> المغرب</h1>
+                <h2 style="font-size: 35px;" id="maghrib-time">4:22 </h2>
+            </div>
+            <div id="font" id="isha">
+                <h1 style="font-size: 35px;"> العشاء</h1>
+                <h2 style="font-size: 35px;" id="isha-time">4:22 </h2>
+            </div>
+        </div>
+
+        <div id="listcities">
+            <select name="" id="city-select" style="width: 300px;height: 50px;font-size: 25px;
+            font-family:Cairo ;background: none;color: aliceblue; padding: 5px;border-radius: 20px;">
+                <!-- <div style="background: none;color: rgb(231, 231, 231); background-color: black;">
+                    <option value=""> الرياض </option>
+                    <option value=""> جدة</option>
+                    <option value=""> الشرقية</option>
+                    <option value=""></option>
+                </div> -->
+
+
+
+            </select>
+        </div>
+    </div>
+
+
+
+</body>
+
+<script src="./node_modules/axios/dist/axios.min.js"></script>
+<script>
+    let cities = [
+
+    
+     {
+          arabicname: "المدينة المنورة",
+          name :"Al Madīnah al Munawwarah"
+         
+     },
+     {
+          arabicname: "مكة المكرمة", 
+          name: "Makkah"
+     }
+,
+
+{
+          arabicname: "القاهرة", 
+          name: "Al Qāhirah"
+     }
+,
+    {
+
+          arabicname: "دمياط", 
+          name: "Dumyāţ"
+     }
+
+
+    // "المدينة المنورة","مكة المكرمة"
+    //     , "الرياض ",  "الشرقية", "القصيم",
+        
+
+    ]
+    for (let city of cities) {
+        const content = `<option>${city.arabicname}</option>`
+        document.getElementById("city-select").innerHTML += content
+        
+
+    }
+
+
+    document.getElementById("city-select").addEventListener("change", function (
+    ) {
+
+
+  document.getElementById("cityshown").innerHTML = this.value
+        let cityname = ""
+        for (let city of cities)
+    if(city.arabicname ==this.value)
+    {
+        cityname = city.name
+    }
+    // console.log(this.value)
+
+    getprayertimingofciities(cityname)
+        // if (this.value == "مكة المكرمة") {
+        //     getprayertimingofciities("Makkah")
+        // }
+        // else if (this.value == "الرياض") {
+        //     getprayertimingofciities("Ar Riyāḑ")
+        // }
+        // else if (this.value == "المدينة المنورة") {
+        //     getprayertimingofciities("Al Madīnah al Munawwarah")
+        // }
+    })
+
+    function getprayertimingofciities(cityname) {
+
+
+        let params = {
+            country: "SA",
+            city: cityname
+        }
+        axios.get('http://api.aladhan.com/v1/timingsByCity', {
+            params: params
+
+        })
+            .then(function (response) {
+                const timings = response.data.data.timings
+                const readabledate = response.data.data.date.readable
+                const weakDay = response.data.data.date.hijri.weekday.ar
+                const date1 = readabledate + " " + weakDay
+                console.log(date1)
+
+                filltimforprayer("fajr-time", timings.Fajr)
+                // document.getElementById("fajr-time").innerHTML = timings.Fajr
+
+
+                filltimforprayer("sunrise-time", timings.Sunrise)
+
+                filltimforprayer("Dhuhr-time", timings.Dhuhr)
+                filltimforprayer("Asr-time", timings.Asr)
+                filltimforprayer("maghrib-time", timings.Sunset)
+                filltimforprayer("isha-time", timings.Isha)
+                getdate("date", date1)
+             
+                console.log(response.data.data.timings)
+
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+
+    }
+
+    // getprayertimingofciities("Makkah")
+    // getprayertimingofciities("Makkah")
+
+    // getprayertimingofciities("Makkah")
+
+
+    function filltimforprayer(id, time) {
+        document.getElementById(id).innerHTML = time
+    }
+    function getdate(id2, date) {
+        document.getElementById(id2).innerHTML = date
+    }
+    document.getElementById("city-select").value = cities[0].arabicname;
+        document.getElementById("cityshown").innerHTML = cities[0].arabicname;
+        getprayertimingofciities(cities[0].name);
+</script>
+
+</html>
